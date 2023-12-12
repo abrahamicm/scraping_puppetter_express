@@ -42,3 +42,36 @@ module.exports = {
   scrapeHandler,
   scrapeUrls,
 };
+
+
+function obtenerInformacionColores() {
+  // Obtener todos los elementos del documento
+  var allElements = document.querySelectorAll('*');
+
+  // Inicializar un objeto para almacenar la información de colores
+  var colorInfo = {};
+
+  // Iterar sobre cada elemento y obtener la información de colores
+  allElements.forEach(function (element) {
+    var computedStyle = window.getComputedStyle(element);
+    var color = computedStyle.color;
+
+    // Agregar la información al objeto colorInfo
+    if (color) {
+      if (!colorInfo[color]) {
+        colorInfo[color] = 0;
+      }
+      colorInfo[color]++;
+    }
+  });
+
+  // Mostrar la información en la consola
+  console.log('Información de colores utilizados:');
+  console.log(colorInfo);
+
+  // Devolver el objeto con la información
+  return colorInfo;
+}
+
+// Llama a la función para obtener la información
+obtenerInformacionColores();
