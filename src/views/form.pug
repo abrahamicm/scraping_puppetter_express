@@ -1,0 +1,20 @@
+extends layouts/main-layout
+
+block content
+  .container.mt-4
+    form#scraper-form(action='/scrape' method='post')
+      .form-group
+        label(for='urls') URLs (separadas por salto de línea):
+        textarea#urls.form-control(name='urls' rows='4' placeholder='Ingrese las URLs aquí')
+      br
+      .form-group
+        label(for='strategy') Estrategia:
+        select#strategy.form-control(name='strategy')
+          option(value='selector') Capturar Selector
+          // Puedes agregar más opciones de estrategias aquí
+      br
+      .form-group
+        label(for='selector') Nombre del Selector:
+        input#selector.form-control(type='text' name='selector' placeholder='Ingrese el selector aquí')
+      br
+      button.btn.btn-primary(type='submit') Scrapear
