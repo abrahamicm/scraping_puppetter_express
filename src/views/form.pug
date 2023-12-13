@@ -17,4 +17,8 @@ block content
         label(for='selector') Nombre del Selector:
         input#selector.form-control(type='text' name='selector' placeholder='Ingrese el selector aquí')
       br
+      .form-group
+        label(for='hideSelector') Ocultar elementos con selector CSS adicional:
+        input#hideSelector.form-control(type='text' name='hideSelector' placeholder='Ingrese el selector CSS aquí')
+        br
       button.btn.btn-primary(type='submit') Scrapear
